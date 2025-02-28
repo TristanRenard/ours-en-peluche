@@ -1,4 +1,9 @@
-# ours en peluche
+# Tristan Renard - ours en peluche
+
+Chat : https://github.com/TristanRenard/ours-en-peluche
+API : https://github.com/TristanRenard/ours-en-peluche-api
+
+
 Le but est de proposer un chatbot qui répond aux employés avec des citations inspirantes et de motivation (nulles).
 
 ## Installation
