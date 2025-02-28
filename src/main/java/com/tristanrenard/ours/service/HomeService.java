@@ -37,12 +37,13 @@ public class HomeService {
         return user.getMessages();
     }
 
-    public void saveMessage(Integer userId, String messageContent) {
+    public void saveMessage(Integer userId, String messageContent, Boolean isBot) {
         User user = getUserById(userId);
         Message message = new Message();
         message.setUser(user);
         message.setMessage(messageContent);
         message.setDate(new Timestamp(System.currentTimeMillis()));
+        message.setBot(isBot);
 
         messageRepository.save(message);
     }

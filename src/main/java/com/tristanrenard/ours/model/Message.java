@@ -1,5 +1,6 @@
 package com.tristanrenard.ours.model;
 
+
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
