@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff7f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            padding: 12px 20px;
+            background-color: #ffa455;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff8309;
+        }
+
+        .users {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .user {
+            padding: 12px 16px;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        form input::placeholder {
+            color: #aaa;
+        }
+
+        .user a {
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: #ffa455;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        .user a:hover {
+            background-color: #ff8309;
+        }
+    </style>
+</head>
+<body>
+<h2>Utilisateurs</h2>
+
+<form th:action="@{/submitUser}" method="post">
+    <input type="text" name="name" id="name" placeholder="Nom" required>
+    <input type="submit" value="Envoyer">
+</form>
+
+<div class="users">
+    <div th:each="user : ${users}" class="user">
+        <p th:text="${user.name}"></p>
+        <a th:href="@{'/messages?userId=' + ${user.id}}">Choisir</a>
+    </div>
+</div>
+</body>
+</html>
